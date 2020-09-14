@@ -21,8 +21,7 @@ import os
 
 options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
-driver = webdriver.Chrome("K:\Project\Python\LeadsAutomotionInLinkdIn\chromedriver.exe",
-                          chrome_options=options)
+driver = webdriver.Chrome("K:\Project\Python\LeadsAutomotionInLinkdIn\chromedriver.exe",chrome_options=options)
 driver.implicitly_wait(25)  # seconds
 
 # No 1 : Change
@@ -63,6 +62,28 @@ try:
     driver.find_elements_by_class_name("artdeco-button--tertiary")[2].click()
 except:
     driver.find_elements_by_class_name("artdeco-button--tertiary")[1].click()
+
+bnts = driver.find_element_by_class_name("search-filter__list").find_elements_by_tag_name("li")
+
+bnts[2].find_element_by_class_name("search-filter").click()
+time.sleep(2)
+
+
+driver.find_element_by_class_name("link-without-visited-state").click()
+time.sleep(2)
+
+
+
+bnts[3].find_element_by_class_name("search-filter").click()
+time.sleep(2)
+
+bnts[3].find_element_by_tag_name("input").send_keys("Bangladesh")
+time.sleep(2)
+
+
+bnts[3].find_element_by_class_name("search-filter-typeahead__list").find_element_by_tag_name("button").click()
+time.sleep(2)
+
 
 input("Enter something to continue the script : \n")
 
