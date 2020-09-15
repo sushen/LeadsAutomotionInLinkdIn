@@ -7,6 +7,12 @@
 #
 #  !/usr/bin/env python
 #  coding: utf-8
+#
+#  Sushen Biswas Github Link : https://github.com/sushen
+#  Pedro Brito Github Link : https://github.com/XiBiTuH
+#
+#  !/usr/bin/env python
+#  coding: utf-8
 
 from selenium import webdriver
 import time
@@ -16,12 +22,15 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.options import Options
 
 
+
 chrome_options = Options()
 chrome_options.add_argument("--user-data-dir=chrome-data")
 chrome_options.add_argument("--start-maximized")
 driver = webdriver.Chrome("K:\Project\Python\LeadsAutomotionInLinkdIn\chromedriver.exe",chrome_options=chrome_options)
 chrome_options.add_argument("user-data-dir=chrome-data")
 driver.implicitly_wait(25)  # seconds
+
+
 # What will be searched
 
 # Time waiting for page
@@ -35,6 +44,7 @@ username = str(data).split("\n")[0]
 password = str(data).split("\n")[1]
 '''
 
+# Login
 try:
     # I use environment veriable base on this tutorials https://www.youtube.com/watch?v=IolxqkL7cD8
     username = os.environ.get('my_Linkdin_username')
@@ -52,7 +62,7 @@ except:
 
 # No 2 : Change
 # #Replace this with the link of your list
-url = "https://www.linkedin.com/sales/lists/people/6709634433944813568?sortCriteria=CREATED_TIME"
+url = "https://www.linkedin.com/sales/lists/people/6709657449168805888?sortCriteria=CREATED_TIME"
 
 driver.get(url)
 time.sleep(waiting_for_page)
@@ -98,7 +108,7 @@ for i in range(pages):
         #---------------------------------------------------------------------------------
 
         # List from where you wanna remove users - MAIN LIST
-        list_to_remove = "UNDP"
+        list_to_remove = "UNDP Pending Member"
 
 
 
@@ -106,7 +116,7 @@ for i in range(pages):
         #--------------------------------------
 
         #List to add removed users
-        list_to_add = "UNDP Pending Member"
+        list_to_add = "SlowLinkdinUNDPUser"
 
         #-------------------------------------------
 
