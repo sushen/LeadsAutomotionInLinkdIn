@@ -119,4 +119,10 @@ while(True):
     time.sleep(10)
 
 
+#Close the current browser
+driver.close()
+
+
+# Just change the name of the file, and this line of code will open another script
+exec(open("3.ShuffleScript.py").read())
 
