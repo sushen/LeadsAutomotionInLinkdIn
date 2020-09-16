@@ -13,6 +13,9 @@ import time
 import random
 import os
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.chrome.options import Options
+
+
 
 #No 1 : Change
 #Change the messages as you wish, one of them will be randomly picked
@@ -32,12 +35,27 @@ messages = [
 ]
 
 
-options = webdriver.ChromeOptions()
-options.add_argument("--start-maximized")
-driver = webdriver.Chrome("D:\Project\Python Tutorials Repo\LinkedInMessageSender\chromedriver.exe", chrome_options=options)
-driver.implicitly_wait(5)  # seconds
+
+chrome_options = Options()
+chrome_options.add_argument("--user-data-dir=chrome-data")
+chrome_options.add_argument("--start-maximized")
+driver = webdriver.Chrome("K:\Project\Python\LeadsAutomotionInLinkdIn\chromedriver.exe",chrome_options=chrome_options)
+chrome_options.add_argument("user-data-dir=chrome-data")
+driver.implicitly_wait(25)  # seconds
+
+#CHANGE
+
+list_to_remove = "Put your main list here"
+
+
+
+list_to_add = "Put your into list"
+
+
+
 
 #What will be searched
+
 
 #Time waiting for page
 waiting_for_page = 10
@@ -48,17 +66,20 @@ driver.get("https://www.linkedin.com/")
 
 # Login
 
-# I use environment veriable base on this tutorials https://www.youtube.com/watch?v=IolxqkL7cD8
-username = os.environ.get('my_Linkdin_username')
-password = os.environ.get('my_Linkdin_password')
+try:
+    # I use environment veriable base on this tutorials https://www.youtube.com/watch?v=IolxqkL7cD8
+    username = os.environ.get('my_Linkdin_username')
+    password = os.environ.get('my_Linkdin_password')
 
+    driver.find_element_by_id("session_key").send_keys(username)
+    driver.find_element_by_id("session_password").send_keys(password)
+    time.sleep(1)
 
-driver.find_element_by_id("session_key").send_keys(username)
-driver.find_element_by_id("session_password").send_keys(password)
-time.sleep(1)
+    driver.find_element_by_class_name("sign-in-form__submit-button").click()
+    time.sleep(waiting_for_page)
+except:
+    pass
 
-driver.find_element_by_class_name("sign-in-form__submit-button").click()
-time.sleep(waiting_for_page)
 
 #No 3 : Change
 #Replace this with the link of your list
@@ -140,6 +161,47 @@ for i in range(pages):
 
         for m in range(len(aux)):
 
+                # No 3 : Change
+                # Change to "Add to another list"
+                if "Add to another list" in aux[m].text:
+                    aux[m].click()
+                    time.sleep(3)
+
+                    cont = driver.find_element_by_class_name("entity-lists-ta__ta-container")
+
+                    btns = cont.find_elements_by_tag_name("button")
+
+                    # Remove from list
+                    for b in btns:
+                        nm = ""
+                        try:
+                            nm = b.text.split("\n")[0]
+                        except:
+                            nm = b.text
+
+                        if list_to_remove == nm:
+                            b.click()
+
+                    time.sleep(2)
+                    mn = driver.find_element_by_class_name("entity-lists-ta__unselected-menu")
+                    aux_btns = mn.find_elements_by_tag_name("button")
+
+                    for xua in aux_btns:
+                        nm = ""
+                        try:
+                            nm = xua.text.split(" (")[0]
+                        except:
+                            nm = xua.text
+
+                        if list_to_add == nm:
+                            xua.click()
+
+                    time.sleep(1)
+                    driver.find_element_by_class_name("edit-entity-lists-modal__save-btn").click()
+                    p -= 1
+                    break
+
+
             # Change to "Send Message"
             if "Remove from list" in aux[m].text:
 
@@ -152,6 +214,7 @@ for i in range(pages):
                 driver.find_element_by_class_name("remove-entity-from-list__delete-button").click()
                 time.sleep(2)
                 break
+
 
         time.sleep(1)
 

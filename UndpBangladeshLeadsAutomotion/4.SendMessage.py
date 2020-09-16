@@ -13,6 +13,7 @@ import time
 import random
 import os
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.chrome.options import Options
 
 #No 1 : Change
 #Change the messages as you wish, one of them will be randomly picked
@@ -32,10 +33,12 @@ messages = [
 ]
 
 
-options = webdriver.ChromeOptions()
-options.add_argument("--start-maximized")
-driver = webdriver.Chrome("D:\Project\Python Tutorials Repo\LinkedInMessageSender\chromedriver.exe", chrome_options=options)
-driver.implicitly_wait(5)  # seconds
+chrome_options = Options()
+chrome_options.add_argument("--user-data-dir=chrome-data")
+chrome_options.add_argument("--start-maximized")
+driver = webdriver.Chrome("K:\Project\Python\LeadsAutomotionInLinkdIn\chromedriver.exe",chrome_options=chrome_options)
+chrome_options.add_argument("user-data-dir=chrome-data")
+driver.implicitly_wait(25)  # seconds
 
 #What will be searched
 
@@ -48,17 +51,20 @@ driver.get("https://www.linkedin.com/")
 
 # Login
 
-# I use environment veriable base on this tutorials https://www.youtube.com/watch?v=IolxqkL7cD8
-username = os.environ.get('my_Linkdin_username')
-password = os.environ.get('my_Linkdin_password')
+# Login
+try:
+    # I use environment veriable base on this tutorials https://www.youtube.com/watch?v=IolxqkL7cD8
+    username = os.environ.get('my_Linkdin_username')
+    password = os.environ.get('my_Linkdin_password')
 
+    driver.find_element_by_id("session_key").send_keys(username)
+    driver.find_element_by_id("session_password").send_keys(password)
+    time.sleep(1)
 
-driver.find_element_by_id("session_key").send_keys(username)
-driver.find_element_by_id("session_password").send_keys(password)
-time.sleep(1)
-
-driver.find_element_by_class_name("sign-in-form__submit-button").click()
-time.sleep(waiting_for_page)
+    driver.find_element_by_class_name("sign-in-form__submit-button").click()
+    time.sleep(waiting_for_page)
+except:
+    pass
 
 #No 3 : Change
 #Replace this with the link of your list

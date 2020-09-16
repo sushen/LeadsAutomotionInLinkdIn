@@ -18,11 +18,17 @@ from selenium import webdriver
 import time
 from selenium.webdriver.common.action_chains import ActionChains
 import os
+from selenium.webdriver.chrome.options import Options
 
-options = webdriver.ChromeOptions()
-options.add_argument("--start-maximized")
-driver = webdriver.Chrome("K:\Project\Python\LeadsAutomotionInLinkdIn\chromedriver.exe",chrome_options=options)
+
+
+chrome_options = Options()
+chrome_options.add_argument("--user-data-dir=chrome-data")
+chrome_options.add_argument("--start-maximized")
+driver = webdriver.Chrome("K:\Project\Python\LeadsAutomotionInLinkdIn\chromedriver.exe",chrome_options=chrome_options)
+chrome_options.add_argument("user-data-dir=chrome-data")
 driver.implicitly_wait(25)  # seconds
+
 
 # No 1 : Change
 # What will be searched
@@ -35,18 +41,21 @@ waiting_for_page = 5
 time_per_user = 2
 
 driver.get("https://www.linkedin.com/")
-
+time.sleep(2)
 # Login
-# I use environment veriable base on this tutorials https://www.youtube.com/watch?v=IolxqkL7cD8
-username = os.environ.get('my_Linkdin_username')
-password = os.environ.get('my_Linkdin_password')
+try:
+    # I use environment veriable base on this tutorials https://www.youtube.com/watch?v=IolxqkL7cD8
+    username = os.environ.get('my_Linkdin_username')
+    password = os.environ.get('my_Linkdin_password')
 
-driver.find_element_by_id("session_key").send_keys(username)
-driver.find_element_by_id("session_password").send_keys(password)
-time.sleep(1)
+    driver.find_element_by_id("session_key").send_keys(username)
+    driver.find_element_by_id("session_password").send_keys(password)
+    time.sleep(1)
 
-driver.find_element_by_class_name("sign-in-form__submit-button").click()
-time.sleep(waiting_for_page)
+    driver.find_element_by_class_name("sign-in-form__submit-button").click()
+    time.sleep(waiting_for_page)
+except:
+    pass
 
 # Go to leads page
 driver.find_element_by_class_name("global-nav__content").find_elements_by_tag_name("a")[-1].click()
