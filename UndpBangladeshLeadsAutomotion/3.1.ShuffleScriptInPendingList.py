@@ -19,6 +19,7 @@ import time
 import random
 import os
 from selenium.webdriver.common.action_chains import ActionChains
+
 from selenium.webdriver.chrome.options import Options
 
 
@@ -29,6 +30,7 @@ chrome_options.add_argument("--start-maximized")
 driver = webdriver.Chrome("K:\Project\Python\LeadsAutomotionInLinkdIn\chromedriver.exe",chrome_options=chrome_options)
 chrome_options.add_argument("user-data-dir=chrome-data")
 driver.implicitly_wait(25)  # seconds
+
 
 
 # What will be searched
@@ -58,6 +60,7 @@ try:
     time.sleep(waiting_for_page)
 except:
     pass
+
 
 
 # No 2 : Change

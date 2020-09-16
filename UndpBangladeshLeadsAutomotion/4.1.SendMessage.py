@@ -16,6 +16,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.options import Options
 
 
+
 #No 1 : Change
 #Change the messages as you wish, one of them will be randomly picked
 subjects = [
@@ -32,6 +33,7 @@ messages = [
     "Hello Sir, \nI am working with UNDP base organization for more than three years.\nOur company work in Unicef Somalia (Nairobi based) as a BI(Business Intelligence) Consultant. If you accept my invitation I will be a very glade.",
     "Hello Sir, \nI am serving International Diplomate  for more than three years.my office is in Gulshan 2 near the Unicef hartal office.\nOur company work in Unicef Somalia (Nairobi based) as a BI(Business Intelligence) Consultant. If you accept my invitation I will be a very glade."
 ]
+
 
 
 chrome_options = Options()
@@ -51,6 +53,10 @@ list_to_add = "Put your into list"
 
 
 
+
+#What will be searched
+
+
 #Time waiting for page
 waiting_for_page = 10
 
@@ -59,6 +65,7 @@ waiting_for_page = 10
 driver.get("https://www.linkedin.com/")
 
 # Login
+
 try:
     # I use environment veriable base on this tutorials https://www.youtube.com/watch?v=IolxqkL7cD8
     username = os.environ.get('my_Linkdin_username')
@@ -72,6 +79,7 @@ try:
     time.sleep(waiting_for_page)
 except:
     pass
+
 
 #No 3 : Change
 #Replace this with the link of your list
@@ -152,6 +160,7 @@ for i in range(pages):
         aux = people[p].find_element_by_class_name("artdeco-dropdown__content-inner").find_elements_by_tag_name("li")
 
         for m in range(len(aux)):
+
                 # No 3 : Change
                 # Change to "Add to another list"
                 if "Add to another list" in aux[m].text:
@@ -191,6 +200,21 @@ for i in range(pages):
                     driver.find_element_by_class_name("edit-entity-lists-modal__save-btn").click()
                     p -= 1
                     break
+
+
+            # Change to "Send Message"
+            if "Remove from list" in aux[m].text:
+
+                aux[m].click()
+
+                time.sleep(2)
+
+                driver.find_element_by_class_name("simple-form").find_elements_by_tag_name("label")[1].click()
+                time.sleep(2)
+                driver.find_element_by_class_name("remove-entity-from-list__delete-button").click()
+                time.sleep(2)
+                break
+
 
         time.sleep(1)
 
