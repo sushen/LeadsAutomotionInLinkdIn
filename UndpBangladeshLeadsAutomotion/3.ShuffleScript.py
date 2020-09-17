@@ -242,5 +242,10 @@ for i in range(pages):
         pass
     time.sleep(10)
 
+<<<<<<< Updated upstream
+=======
+# Close the current browser
+driver.close()
+>>>>>>> Stashed changes
 
 

@@ -226,3 +226,5 @@ for i in range(pages):
 
 
 
+# Close the current browser
+driver.close()

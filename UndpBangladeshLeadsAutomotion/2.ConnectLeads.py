@@ -112,7 +112,7 @@ while(True):
         aux_count += 70
 
     try:
-        driver.find_element_by_class_name("search-results__pagination-next-button").click()
+        driver.find_element_by_class_name("artdeco-pagination__button--next").click()
     except:
         break
 
@@ -122,7 +122,14 @@ while(True):
 #Close the current browser
 driver.close()
 
+<<<<<<< Updated upstream
 
 # Just change the name of the file, and this line of code will open another script
 exec(open("3.ShuffleScript.py").read())
+=======
+# TODO: Test that in 3.2.ShuffleScriptSlowLinkdinUNDPUserList.py
+# Close the current browser
+driver.close()
+
+>>>>>>> Stashed changes
 

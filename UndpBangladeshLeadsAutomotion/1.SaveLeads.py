@@ -166,3 +166,16 @@ for i in range(pages):
     time.sleep(waiting_for_page)
 
 
+<<<<<<< Updated upstream
+=======
+
+# # Close one and Start another
+# Close the current browser
+driver.close()
+
+
+
+
+
+
+>>>>>>> Stashed changes
