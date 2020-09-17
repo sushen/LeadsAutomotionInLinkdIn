@@ -7,11 +7,6 @@
 #
 #  !/usr/bin/env python
 #  coding: utf-8
-#  Copyright (c) 2020.
-#  Version : 1.0.1
-
-# !/usr/bin/env python
-# coding: utf-8
 
 
 from selenium import webdriver
@@ -101,7 +96,7 @@ time.sleep(waiting_for_page)
 pages = int(
     driver.find_element_by_class_name("search-results__pagination-list").find_elements_by_tag_name("li")[-1].text.split(
         "…")[-1])
-
+# TODO: Lets Make a funcation for that and CAll That Funcation
 for i in range(pages):
 
     # Go trough the page users and check if they can be messaged
@@ -153,8 +148,6 @@ for i in range(pages):
                         time.sleep(1)
 
 
-
-
         except Exception as e:
             print(e)
             pass
@@ -166,8 +159,7 @@ for i in range(pages):
     time.sleep(waiting_for_page)
 
 
-<<<<<<< Updated upstream
-=======
+
 
 # # Close one and Start another
 # Close the current browser
@@ -177,5 +169,3 @@ driver.close()
 
 
 
-
->>>>>>> Stashed changes

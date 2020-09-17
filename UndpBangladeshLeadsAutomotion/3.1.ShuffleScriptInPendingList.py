@@ -256,12 +256,14 @@ for i in range(pages):
     time.sleep(10)
 
 
-<<<<<<< Updated upstream
-=======
+
 # Close one and Start another
 # Close the current browser
 driver.close()
 
 
->>>>>>> Stashed changes
+
+# Open another script after finish this one base on https://stackoverflow.com/questions/1027714/how-to-execute-a-file-within-the-python-interpreter/1027730
+# exec(open("3.2.ShuffleScriptSlowLinkdinUNDPUserList.py").read())
+
 

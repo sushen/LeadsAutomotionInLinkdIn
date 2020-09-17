@@ -249,7 +249,9 @@ for i in range(pages):
     time.sleep(10)
 
 # TODO: Run That Code and Make Sure Its Close Browse and Run Another Script
+
 # Close the current browser
 driver.close()
+
 
 

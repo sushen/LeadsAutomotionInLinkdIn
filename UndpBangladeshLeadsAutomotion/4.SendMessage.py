@@ -196,11 +196,10 @@ for i in range(pages):
         people = people[1:]
         n_people = len(people)
 
-<<<<<<< Updated upstream
-=======
+
 # TODO: ADD to Another List After Sending Massage - DONE
 # Close the current browser
 driver.close()
->>>>>>> Stashed changes
+
 
 

@@ -118,18 +118,16 @@ while(True):
 
     time.sleep(10)
 
+# TODO: Fixed the pasination
 
-#Close the current browser
-driver.close()
 
-<<<<<<< Updated upstream
 
-# Just change the name of the file, and this line of code will open another script
-exec(open("3.ShuffleScript.py").read())
-=======
+
+
 # TODO: Test that in 3.2.ShuffleScriptSlowLinkdinUNDPUserList.py
 # Close the current browser
 driver.close()
 
->>>>>>> Stashed changes
+
+
 
