@@ -97,6 +97,7 @@ pages = int(
     driver.find_element_by_class_name("search-results__pagination-list").find_elements_by_tag_name("li")[-1].text.split(
         "…")[-1])
 # TODO: Lets Make a funcation for that and CAll That Funcation
+
 for i in range(pages):
 
     # Go trough the page users and check if they can be messaged
