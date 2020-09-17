@@ -36,7 +36,8 @@ messages = [
 chrome_options = Options()
 chrome_options.add_argument("--user-data-dir=chrome-data")
 chrome_options.add_argument("--start-maximized")
-driver = webdriver.Chrome("K:\Project\Python\LeadsAutomotionInLinkdIn\chromedriver.exe",chrome_options=chrome_options)
+driver = webdriver.Chrome("K:\Project\Python\LeadsAutomotionInLinkdIn\chromedriver.exe"
+                          , chrome_options=chrome_options)
 chrome_options.add_argument("user-data-dir=chrome-data")
 driver.implicitly_wait(25)  # seconds
 
@@ -79,9 +80,9 @@ except:
     pages = 1
 
 #change the names of the list
-list_to_remove = "Main list"
+list_to_remove = "UNDP Connection"
 
-list_to_add = "Another list"
+list_to_add = "Send UNDP People 2nd Massage"
 
 for i in range(pages):
 
@@ -92,6 +93,9 @@ for i in range(pages):
     p = 0
     aux_count = 0
     while n_people > 0:
+        time.sleep(5)
+        people = driver.find_element_by_tag_name("table").find_elements_by_tag_name("tr")
+        people = people[1:]
 
         time.sleep(1)
 
@@ -185,7 +189,6 @@ for i in range(pages):
 
                     time.sleep(1)
                     driver.find_element_by_class_name("edit-entity-lists-modal__save-btn").click()
-                    p -= 1
                     break
 
         time.sleep(1)

@@ -32,7 +32,7 @@ chrome_options.add_argument("--user-data-dir=chrome-data")
 chrome_options.add_argument("--start-maximized")
 driver = webdriver.Chrome("K:\Project\Python\LeadsAutomotionInLinkdIn\chromedriver.exe",chrome_options=chrome_options)
 chrome_options.add_argument("user-data-dir=chrome-data")
-driver.implicitly_wait(25)  # seconds
+driver.implicitly_wait(15)  # seconds
 # What will be searched
 
 # Time waiting for page
@@ -109,19 +109,14 @@ while(True):
 
         driver.find_element_by_id("content-main").click()
 
-        aux_count += 70
-
+        aux_count += 80
+    # TODO: Fixed the pasination
     try:
         driver.find_element_by_class_name("artdeco-pagination__button--next").click()
     except:
         break
 
     time.sleep(10)
-
-# TODO: Fixed the pasination
-
-
-
 
 
 # TODO: Test that in 3.2.ShuffleScriptSlowLinkdinUNDPUserList.py
