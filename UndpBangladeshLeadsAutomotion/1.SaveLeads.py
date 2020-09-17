@@ -7,11 +7,6 @@
 #
 #  !/usr/bin/env python
 #  coding: utf-8
-#  Copyright (c) 2020.
-#  Version : 1.0.1
-
-# !/usr/bin/env python
-# coding: utf-8
 
 
 from selenium import webdriver
@@ -101,7 +96,7 @@ time.sleep(waiting_for_page)
 pages = int(
     driver.find_element_by_class_name("search-results__pagination-list").find_elements_by_tag_name("li")[-1].text.split(
         "…")[-1])
-
+# TODO: Lets Make a funcation for that and CAll That Funcation
 for i in range(pages):
 
     # Go trough the page users and check if they can be messaged
@@ -153,8 +148,6 @@ for i in range(pages):
                         time.sleep(1)
 
 
-
-
         except Exception as e:
             print(e)
             pass
@@ -164,5 +157,16 @@ for i in range(pages):
 
     driver.find_element_by_class_name("search-results__pagination-next-button").click()
     time.sleep(waiting_for_page)
+
+
+
+# # Close one and Start another
+# driver.quit()
+#
+# # Open another script after finish this one base on https://stackoverflow.com/questions/1027714/how-to-execute-a-file-within-the-python-interpreter/1027730
+# exec(open("2.ConnectLeads.py").read())
+
+
+
 
 

@@ -7,6 +7,12 @@
 #
 #  !/usr/bin/env python
 #  coding: utf-8
+#
+#  Sushen Biswas Github Link : https://github.com/sushen
+#  Pedro Brito Github Link : https://github.com/XiBiTuH
+#
+#  !/usr/bin/env python
+#  coding: utf-8
 
 from selenium import webdriver
 import time
@@ -52,7 +58,7 @@ except:
 
 # No 2 : Change
 # #Replace this with the link of your list
-url = "https://www.linkedin.com/sales/lists/people/6709634433944813568?sortCriteria=CREATED_TIME"
+url = "https://www.linkedin.com/sales/lists/people/6711509806345269248?sortCriteria=CREATED_TIME"
 
 driver.get(url)
 time.sleep(waiting_for_page)
@@ -98,7 +104,7 @@ for i in range(pages):
         #---------------------------------------------------------------------------------
 
         # List from where you wanna remove users - MAIN LIST
-        list_to_remove = "UNDP"
+        list_to_remove = "SlowLinkdinUNDPUser"
 
 
 
@@ -242,10 +248,11 @@ for i in range(pages):
         pass
     time.sleep(10)
 
+# TODO: Run That Code and Make Sure Its Close Browse and Run Another Script
 # Close one and Start another
-driver.quit()
-
+# driver.quit()
+#
 # Open another script after finish this one base on https://stackoverflow.com/questions/1027714/how-to-execute-a-file-within-the-python-interpreter/1027730
-exec(open("3.1.ShuffleScriptInPendingList.py").read())
+# exec(open("3.ShuffleScript.py").read())
 
 
