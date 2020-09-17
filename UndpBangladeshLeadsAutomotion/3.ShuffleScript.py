@@ -242,10 +242,10 @@ for i in range(pages):
         pass
     time.sleep(10)
 
-# Close one and Start another
-driver.quit()
 
-# Open another script after finish this one base on https://stackoverflow.com/questions/1027714/how-to-execute-a-file-within-the-python-interpreter/1027730
-exec(open("3.1.ShuffleScriptInPendingList.py").read())
+# Close the current browser
+driver.close()
+
+
 
 

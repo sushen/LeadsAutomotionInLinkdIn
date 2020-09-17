@@ -78,7 +78,10 @@ try:
 except:
     pages = 1
 
+#change the names of the list
+list_to_remove = "Main list"
 
+list_to_add = "Another list"
 
 for i in range(pages):
 
@@ -145,19 +148,45 @@ for i in range(pages):
         aux = people[p].find_element_by_class_name("artdeco-dropdown__content-inner").find_elements_by_tag_name("li")
 
         for m in range(len(aux)):
+                # No 3 : Change
+                # Change to "Add to another list"
+                if "Add to another list" in aux[m].text:
+                    aux[m].click()
+                    time.sleep(3)
 
-            # Change to "Send Message"
-            if "Remove from list" in aux[m].text:
+                    cont = driver.find_element_by_class_name("entity-lists-ta__ta-container")
 
-                aux[m].click()
+                    btns = cont.find_elements_by_tag_name("button")
 
-                time.sleep(2)
+                    # Remove from list
+                    for b in btns:
+                        nm = ""
+                        try:
+                            nm = b.text.split("\n")[0]
+                        except:
+                            nm = b.text
 
-                driver.find_element_by_class_name("simple-form").find_elements_by_tag_name("label")[1].click()
-                time.sleep(2)
-                driver.find_element_by_class_name("remove-entity-from-list__delete-button").click()
-                time.sleep(2)
-                break
+                        if list_to_remove == nm:
+                            b.click()
+
+                    time.sleep(2)
+                    mn = driver.find_element_by_class_name("entity-lists-ta__unselected-menu")
+                    aux_btns = mn.find_elements_by_tag_name("button")
+
+                    for xua in aux_btns:
+                        nm = ""
+                        try:
+                            nm = xua.text.split(" (")[0]
+                        except:
+                            nm = xua.text
+
+                        if list_to_add == nm:
+                            xua.click()
+
+                    time.sleep(1)
+                    driver.find_element_by_class_name("edit-entity-lists-modal__save-btn").click()
+                    p -= 1
+                    break
 
         time.sleep(1)
 
@@ -167,7 +196,10 @@ for i in range(pages):
         people = people[1:]
         n_people = len(people)
 
-# TODO: ADD to Another List After Sending Massage
+
+# TODO: ADD to Another List After Sending Massage - DONE
+# Close the current browser
+driver.close()
 
 
 

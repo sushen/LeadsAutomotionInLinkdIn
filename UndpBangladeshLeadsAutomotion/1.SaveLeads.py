@@ -160,11 +160,10 @@ for i in range(pages):
 
 
 
+
 # # Close one and Start another
-# driver.quit()
-#
-# # Open another script after finish this one base on https://stackoverflow.com/questions/1027714/how-to-execute-a-file-within-the-python-interpreter/1027730
-# exec(open("2.ConnectLeads.py").read())
+# Close the current browser
+driver.close()
 
 
 
