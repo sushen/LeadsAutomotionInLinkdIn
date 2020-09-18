@@ -107,9 +107,8 @@ while(True):
 
             time.sleep(2)
 
-        driver.find_element_by_id("content-main").click()
 
-        aux_count += 70
+        aux_count +=80
 
     try:
         driver.find_element_by_class_name("artdeco-pagination__button--next").click()
