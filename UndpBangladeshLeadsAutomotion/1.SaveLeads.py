@@ -117,6 +117,13 @@ def main_program():
                 print(e)
                 pass
 
+pages = int(
+    driver.find_element_by_class_name("search-results__pagination-list").find_elements_by_tag_name("li")[-1].text.split(
+        "…")[-1])
+# TODO: Lets Make a funcation for that and CAll That Funcation
+
+for i in range(pages):
+
             time.sleep(time_per_user)
             aux_count += 80
 
