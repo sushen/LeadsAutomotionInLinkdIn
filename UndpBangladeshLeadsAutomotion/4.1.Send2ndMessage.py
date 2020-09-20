@@ -7,6 +7,12 @@
 #
 #  !/usr/bin/env python
 #  coding: utf-8
+#
+#  Sushen Biswas Github Link : https://github.com/sushen
+#  Pedro Brito Github Link : https://github.com/XiBiTuH
+#
+#  !/usr/bin/env python
+#  coding: utf-8
 
 from selenium import webdriver
 import time
@@ -27,9 +33,8 @@ subjects = [
 #No 2 : Change
 #Change the messages as you wish, one of them will be randomly picked
 messages = [
-    "আপনাকে ধন্যবাদ ইনভাটেসন গ্রহন করার জন্য । আপনার কর্মস্থল কি ঢাকাতে ?",
-    "বাংলাতেই লিখি । আপনাকে ধন্যবাদ ইনভাটেসন গ্রহন করার জন্য । আমার ছোট একটা প্রশ্ন, আপনার কর্মস্থল কি ঢাকাতে ?",
-    "আমার ছোট একটা প্রশ্ন, আপনার কর্মস্থল কি ঢাকাতে ?"
+    "আপনি কোন প্রজেক্টে কাজ করেন?",
+    "আপনার প্রজেক্টের নাম কি?"
 ]
 
 

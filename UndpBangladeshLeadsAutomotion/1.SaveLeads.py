@@ -117,25 +117,22 @@ def main_program():
                 print(e)
                 pass
 
-pages = int(
-    driver.find_element_by_class_name("search-results__pagination-list").find_elements_by_tag_name("li")[-1].text.split(
-        "…")[-1])
-# TODO: Lets Make a funcation for that and CAll That Funcation
+        pages = int(
+            driver.find_element_by_class_name("search-results__pagination-list").find_elements_by_tag_name("li")[-1].text.split(
+                "…")[-1])
+        # TODO: Lets Make a funcation for that and CAll That Funcation
 
-for i in range(pages):
+        for i in range(pages):
 
-            time.sleep(time_per_user)
-            aux_count += 80
+                time.sleep(time_per_user)
+                aux_count += 80
 
-        driver.find_element_by_class_name("search-results__pagination-next-button").click()
-        time.sleep(waiting_for_page)
+                driver.find_element_by_class_name("search-results__pagination-next-button").click()
+                time.sleep(waiting_for_page)
 
-
-
-
-    # # Close one and Start another
-    # Close the current browser
-    driver.close()
+                # # Close one and Start another
+                # Close the current browser
+                driver.close()
 
 chrome_options = Options()
 chrome_options.add_argument("--user-data-dir=chrome-data")
@@ -193,6 +190,7 @@ for b in bar:
 if has_navigator:
     main_program()
 else:
+    #TODO: Make a pop up
     print("Update you linkedin to run this script")
 
 
